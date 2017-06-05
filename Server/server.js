@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/Client'));
 app.use(bodyParser.json());
 
 /* CONFIGURE OUR ROUTES */
-require('./Routes/*')(app);
+// require('./Routes/*')(app);
 
 /* START APP */
 app.listen(port, () => {
