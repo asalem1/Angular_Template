@@ -26,12 +26,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.get('/tasks', function(req, res) {
   console.log('the get request is firing')
 });
-app.post('/tasks', function(req, res) {
-  console.log('post req firing')
-});
+// app.post('/tasks', function(req, res) {
+//   console.log('post req firing')
+// });
 
 // // Sets our Routes
-// app.use('/', index);
+app.use('/', index);
 // app.use('/api', tasks);
 
 app.listen(port, function() {
