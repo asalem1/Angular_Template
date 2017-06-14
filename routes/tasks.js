@@ -1,19 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const mongojs = require('mongojs');
-// const db = mongojs(/*database information*/);
+const mLab = require('../mlab');
+const mongoose = require('mongoose')
+// const db = mongojs('mongodb://Asalem:mLab123@ds127492.mlab.com:27492/angular_app', ['tasks'], {authMechanism: 'SCRAM-SHA-1'});
+
+const connection = 'mongodb://Asalem:mLab123@ds127492.mlab.com:27492/angular_app?authSource=admin';
+mongoose.connect(connection);
+mongoose.connection.once('open', function() {
+  console.log('connected to the DB: ', connection);
+})
 
 // set route for home
 // Get All Tasks
-router.get('/tasks', function(req, res, next) {
+router.get('*', function(req, res, next) {
   console.log('i received the get request')
-  // db.tasks.find(function(err, tasks) {
-  //   if (err) {
-  //     res.status(404);
-  //     res.send(err);
-  //   }
-  //   res.json(tasks);
-  // });
+  db.tasks.find(function(err, tasks) {
+    if (err) {
+      res.status(404);
+      res.send(err);
+    }
+    res.json(tasks);
+  });
 });
 
 // // Get Single Tasks
@@ -28,23 +36,23 @@ router.get('/tasks', function(req, res, next) {
 // });
 
 // // Save Tasks
-// router.post('/task', function(req, res, next) {
-//   let task = req.body;
-//   if (!task.title || (task.isDone + '')) {
-//     res.status(404);
-//     res.json({
-//       error: 'information is invalid'
-//     });
-//   } else {
-//     db.tasks.save(task, function(err, task) {
-//       if (err) {
-//         res.status(404);
-//         res.send(err);
-//       }
-//       res.json(task);
-//     });
-//   }
-// });
+router.post('/api/tasks', function(req, res, next) {
+  let task = req.body;
+  if (!task.title || (task.isDone + '')) {
+    res.status(404);
+    res.json({
+      error: 'information is invalid'
+    });
+  } else {
+    db.tasks.save(task, function(err, task) {
+      if (err) {
+        res.status(404);
+        res.send(err);
+      }
+      res.json(task);
+    });
+  }
+});
 
 // // Delete Task
 // router.delete('/tasks/:id', function(req, res, next) {

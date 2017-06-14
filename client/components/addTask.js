@@ -5,10 +5,11 @@ angular.module('angular-app')
   controller: function($http) {
     let $ctrl = this;
     $ctrl.addTask = function() {
-      $http.post('/tasks')
+      $http.post('/api/tasks')
         .then(function(res) {
           console.log('post was success')
             $ctrl.tasks.push($ctrl.task);
+            $ctrl.task = '';
         })
     }
   },
