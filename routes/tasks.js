@@ -3,9 +3,7 @@ const router = express.Router();
 const mongojs = require('mongojs');
 const mLab = require('../mlab');
 const mongoose = require('mongoose')
-// const db = mongojs('mongodb://Asalem:mLab123@ds127492.mlab.com:27492/angular_app', ['tasks'], {authMechanism: 'SCRAM-SHA-1'});
 
-const connection = 'mongodb://Asalem:mLab123@ds127492.mlab.com:27492/angular_app?authSource=admin';
 mongoose.connect(connection);
 mongoose.connection.once('open', function() {
   console.log('connected to the DB: ', connection);
