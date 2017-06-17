@@ -1,5 +1,6 @@
 <li class="task-list-entry media">
   <div class="media-body">
-    <div ng-click="$ctrl.onClick($ctrl.video)">{{$ctrl.task}}</div>
+    <div>{{$ctrl.task.task}}</div>
   </div>
+  <button ng-click="$ctrl.deleteTask($ctrl.task)">delete</button>
 </li>

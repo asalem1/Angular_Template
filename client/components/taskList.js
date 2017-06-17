@@ -5,6 +5,6 @@ angular.module('angular-app')
   controller: function() {},
   bindings: {
     tasks: '<',
-    onClick: '<',
+    deleteClick: '<',
   }
 });

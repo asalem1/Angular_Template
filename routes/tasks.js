@@ -30,7 +30,6 @@ router.get('/tasks/:id', function(req, res, next) {
 // // Save Tasks
 router.post('/tasks', function(req, res, next) {
   let task = req.body;
-  console.log(mLab.mongoId)
   // if (!task.title || (task.isDone + '')) {
   if (!task) {
     res.status(404);
