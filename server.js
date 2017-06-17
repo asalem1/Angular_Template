@@ -22,13 +22,6 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-// app.get('/tasks', function(req, res) {
-//   console.log('the get request is firing')
-// });
-// app.post('/tasks', function(req, res) {
-//   console.log('post req firing')
-// });
-
 // // Sets our Routes
 app.use('/', index);
 app.use('/api', tasks);

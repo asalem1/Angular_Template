@@ -4,10 +4,14 @@ angular.module('angular-app', [])
   templateUrl: 'client/templates/app.html',
   controller: function($http) {
     let $ctrl = this;
-    $http.get('/api/tasks')
-      .then(function(res) {
-        console.log('it was success')
-          $ctrl.tasks = res;
-      })
+    $ctrl.tasks = [];
+    $http({
+      method: 'GET',
+      url: '/api/tasks'
+    }).then(function(res) {
+        res.data.forEach((obj) => {
+          $ctrl.tasks.push(obj.task);
+        })
+    })
   }
 });
