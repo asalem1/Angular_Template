@@ -5,7 +5,6 @@ angular.module('angular-app')
   controller: function($http) {
     $ctrl = this;
     $ctrl.deleteTask = function(task) {
-      console.log('the delete is calling', $ctrl.tasks);
       $http.delete('/api/tasks/' + task._id)
       .then((res) => {
         let i = $ctrl.tasks.indexOf(task);
