@@ -59,28 +59,19 @@ router.delete('/tasks/:id', function(req, res, next) {
 
 // Update Task
 router.put('/tasks/:id', function(req, res, next) {
-  let task = req.body;
+  let task = req.body.task;
   let updatedTask = {};
-  if (task.isDone) {
-    updatedTask.isDone = task.isDone;
+  if (task) {
+    updatedTask = task;
+    delete updatedTask._id;
   }
-  if (task.title) {
-    updatedTask.title = task.title;
-  }
-  if (!updatedTask) {
-    res.status(404);
-    res.json({
-      error: 'information is invalid'
-    });
-  } else {
-    db.tasks.update({_id: mongojs.ObjectId(req.params.id)}, updateTask, {}, function(err, task) {
-      if (err) {
-        res.status(404);
-        res.send(err);
-      }
-      res.json(task);
-    });
-  }
+  db.tasks.update({_id: mongojs.ObjectId(req.params.id)}, updatedTask, {}, function(err, task) {
+    if (err) {
+      res.status(404);
+      res.send(err);
+    }
+    res.json(task);
+  });
 });
 
 module.exports = router;
