@@ -54,9 +54,9 @@ router.delete('/tasks/:id', function(req, res, next) {
       res.status(404);
       res.send(err);
     }
-    res.status(200).send('Snippet deleted successfully');
+    // res.status(200).send('Snippet deleted successfully');
 
-    // res.json(task);
+    res.json(task);
   });
 });
 
