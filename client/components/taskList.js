@@ -4,7 +4,7 @@ angular.module('angular-app')
   templateUrl: 'client/templates/taskList.html',
   controller: function() {},
   bindings: {
-    tasks: '<',
-    deleteClick: '<',
+    tasks: '=',
+    // onClick: '='
   }
 });
