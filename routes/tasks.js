@@ -48,14 +48,11 @@ router.post('/tasks', function(req, res, next) {
 
 // Delete Task
 router.delete('/tasks/:id', function(req, res, next) {
-  console.log('server side delete')
   db.tasks.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, task) {
     if (err) {
       res.status(404);
       res.send(err);
     }
-    // res.status(200).send('Snippet deleted successfully');
-
     res.json(task);
   });
 });
