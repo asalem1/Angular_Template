@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongojs = require('mongojs');
-const mLab = require('../mlab');
 const db = mongojs('tasks', ['tasks']);
 
 // Get All Tasks
