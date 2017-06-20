@@ -2,14 +2,14 @@
   <div class="media-body">
     <div>{{$ctrl.task.task}}</div>
   </div>
-  <button class="btn" ng-click="$ctrl.toggleEdit($ctrl.task)">edit</button>
-  <button class="btn" ng-click="$ctrl.deleteTask($ctrl.task)">delete</button>
+  <button class="btn" ng-click="$ctrl.toggleEdit($ctrl.task)"><span class=" glyphicon glyphicon-erase"></span> edit </button>
+  <button class="btn" ng-click="$ctrl.deleteTask($ctrl.task)"><span class="glyphicon glyphicon-remove-circle"></span> delete</button>
 </li>
 
 <li ng-if="$ctrl.task.editing" class="task-list-entry media">
   <div class="media-body">
     <input ngclass="form-control"  type="text" ng-model="$ctrl.task.task" />
   </div>
-  <button class="btn" ng-click="$ctrl.updateTask($ctrl.task)">update</button>
-  <button class="btn" ng-click="$ctrl.toggleEdit($ctrl.task)">cancel</button>
+  <button class="btn" ng-click="$ctrl.updateTask($ctrl.task)"><span class=" glyphicon glyphicon-ok-circle"></span> update </button>
+  <button class="btn" ng-click="$ctrl.toggleEdit($ctrl.task)"><span class=" glyphicon glyphicon-ban-circle"></span> cancel</button>
 </li>
