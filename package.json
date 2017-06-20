@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "live-server"
+    "start": "node server.js"
   },
   "dependencies": {
     "angular": "^1.6.4",
