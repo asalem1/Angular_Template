@@ -1,4 +1,4 @@
-<li ng-if="!$ctrl.editting" class="task-list-entry media">
+<li ng-if="!$ctrl.task.editing" class="task-list-entry media">
   <div class="media-body">
     <div>{{$ctrl.task.task}}</div>
   </div>
@@ -6,7 +6,7 @@
   <button class="btn" ng-click="$ctrl.deleteTask($ctrl.task)">delete</button>
 </li>
 
-<li ng-if="$ctrl.editting && $ctrl.task._id === $ctrl.id" class="task-list-entry media">
+<li ng-if="$ctrl.task.editing" class="task-list-entry media">
   <div class="media-body">
     <input ngclass="form-control"  type="text" ng-model="$ctrl.task.task" />
   </div>

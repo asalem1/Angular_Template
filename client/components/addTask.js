@@ -22,7 +22,8 @@ angular.module('angular-app')
         return alert('that task already exists');
       }
       task = {
-        task: task
+        task: task,
+        editing: false
       };
       $http.post('/api/tasks', task)
       .then((res) => {
